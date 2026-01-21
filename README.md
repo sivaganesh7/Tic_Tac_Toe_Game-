@@ -2,14 +2,12 @@
 
 <div align="center">
 
-A clean, interactive, and beginner-friendly Tic Tac Toe game built using **Java**.  
-Designed to demonstrate real-world programming logic, input validation, and game-state management.
 
 </div>
 
 ---
 
-## 🌟 Introduction
+## Introduction
 
 Tic Tac Toe is a classic two-player strategy game where players compete to align three of their symbols in a row. This project implements the game as a **command-line application using Java**, focusing on simplicity, clean structure, and real-world coding practices.
 
@@ -22,7 +20,7 @@ Tic Tac Toe is a classic two-player strategy game where players compete to align
 
 ---
 
-## 🚀 Live Demo (Console Preview)
+## Live Demo (Console Preview)
 
 ```
 =================================
@@ -147,12 +145,12 @@ javac -version
 
 #### 3️⃣ Compile the Program
 ```bash
-javac TicTacToeGame.java
+javac -d . production/*.java Main.java
 ```
 
 #### 4️⃣ Run the Game
 ```bash
-java TicTacToeGame
+java Main
 ```
 
 ---
@@ -231,43 +229,66 @@ Arjun (O): 1
 ## 📂 Project Structure
 
 ```
-tic-tac-toe-java/
+TicTacToe/
 │
-├── TicTacToeGame.java      # Main game logic and implementation
-├── README.md               # Project documentation
-└── .gitignore              # Git ignore file
+├── Main.java                    # Entry point and main game orchestration
+├── production/                  # Production folder with modular components
+│   ├── Board.java              # Board management (display, validation, moves)
+│   ├── GameLogic.java          # Game rules (winner checking, player toggling)
+│   ├── Score.java              # Score tracking system
+│   └── UIHelper.java           # User interface and input handling
+├── README.md                    # Project documentation
+└── LICENSE                      # MIT License
 ```
+
+### Component Overview
+
+| File | Responsibility |
+|------|-----------------|
+| **Main.java** | Game flow orchestration and main entry point |
+| **Board.java** | 3×3 board state, display, and move validation |
+| **GameLogic.java** | Winner detection and player alternation |
+| **Score.java** | Multi-round score tracking |
+| **UIHelper.java** | Console I/O and user prompts |
 
 ---
 
-## 💻 Code Highlights
+## 💻 Code Architecture
 
-### Key Classes & Methods
+### Modular Design Pattern
 
-| Component | Purpose |
-|-----------|---------|
-| **Main Game Loop** | Manages turn alternation and game flow |
-| **Board Management** | Stores and updates game state |
-| **Input Validation** | Ensures legal moves only |
-| **Winner Detection** | Checks all winning conditions |
-| **Score Tracking** | Maintains player statistics |
+The project follows **Single Responsibility Principle (SRP)** with separate classes:
+
+| Class | Responsibility |
+|-------|-----------------|
+| **Main** | Game flow, orchestration, user interaction loop |
+| **Board** | Board initialization, display, move validation, cell management |
+| **GameLogic** | Winner detection (rows, columns, diagonals), player toggling |
+| **Score** | Maintain player names and scores across rounds |
+| **UIHelper** | Display messages, get user input, handle console I/O |
+
+### Key Methods
+
+- `Board.makeMove()` - Place symbol on board
+- `GameLogic.checkWinner()` - Check all 8 possible win conditions
+- `Score.updateScore()` - Track wins for each player
+- `UIHelper.getMove()` - Handle user input safely
 
 ---
 
 ## 🔧 Technical Details
 
 ### Built With
-- **Language:** Java 8+
+- **Language:** Java 8+ (tested with Java 22)
 - **Paradigm:** Object-Oriented Programming (OOP)
-- **I/O:** Console input/output
-- **Architecture:** Single-file implementation
+- **Architecture:** Modular, package-based structure
+- **I/O:** Console input/output with Scanner
 
-### Key Concepts Used
-- ✅ 2D Arrays for board representation
-- ✅ Loops and conditionals for game flow
-- ✅ String manipulation and formatting
-- ✅ Input validation and error handling
-- ✅ Game state management
+### Design Patterns Used
+- ✅ Single Responsibility Principle (SRP)
+- ✅ Encapsulation and data hiding
+- ✅ Separation of concerns
+- ✅ Package organization for modularity
 
 ---
 
@@ -331,12 +352,7 @@ Current Board:
 ```
 
 ---
-## 📋 Requirements
-| Requirement | Version |
-|------------|---------|
-| **Java Development Kit** | JDK 8+ |
-| **Operating System** | Windows, macOS, Linux |
-| **RAM** | Minimum 512 MB |
-| **Disk Space** | < 1 MB |
 
+**Happy Gaming! 🎮**
 
+</div>
